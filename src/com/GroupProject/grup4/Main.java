@@ -18,26 +18,31 @@ public class Main {
     static void findMinMax(){
         System.out.print("Masukkan deret angka sebanyak: ");
         int input = scan.nextInt();
-        int[] x = new int[input];
-
-        for (int i = 0; i < input; i++) {
-            System.out.printf("Angka ke %d: \n", i+1);
-            x[i] = scan.nextInt();
+        if(input < 1){
+            System.out.println("Panjang data tidak boleh kurang dari 1");
         }
+        else{
+            int[] x = new int[input];
 
-        int dataMin = 0;
-        int dataMax = 0;
+            for (int i = 0; i < input; i++) {
+                System.out.printf("Angka ke %d: \n", i+1);
+                x[i] = scan.nextInt();
+            }
 
-        for (int j : x) {
-            if (dataMin > j)
-                dataMin = j;
+            int dataMin = 0;
+            int dataMax = 0;
+
+            for (int j : x) {
+                if (dataMin > j)
+                    dataMin = j;
+            }
+
+            for (int j : x) {
+                if (dataMax < j)
+                    dataMax = j;
+            }
+            System.out.println("min: " + dataMin + " max: " + dataMax);
         }
-
-        for (int j : x) {
-            if (dataMax < j)
-                dataMax = j;
-        }
-        System.out.println("min: " + dataMin + " max: " + dataMax);
     }
 
     public static void main(String[] args) {
