@@ -1,6 +1,7 @@
 package com.GroupProject.grup4;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
     static Scanner scan = new Scanner(System.in);
@@ -48,7 +49,7 @@ public class Main {
             switch (pilihan){
                 case 1: findMinMax();
                     break;
-                case 2:
+                case 2: findMin();
                     break;
                 case 3: cutTheBamboo();
                     break;
@@ -64,6 +65,51 @@ public class Main {
 
     }
 
+    public static void findMin(){
+        //initiate array and freq
+        int[] arr;
+        int n = 0;
+
+        //input
+        Scanner input = new Scanner(System.in);
+
+        //ask how many int
+        System.out.print("Masukkan banyaknya angka: ");
+        if (input.hasNextInt()) {
+            n = input.nextInt();
+        } else {
+            System.out.println("Masukkan angka saja!");
+            return;
+        }
+
+        //ask enter integer
+        arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Masukkan angka: ");
+            if (input.hasNextInt()) {
+                arr[i] = input.nextInt();
+            } else {
+                System.out.println("Masukkan angka saja!");
+                return;
+            }
+        }
+
+
+        //sort dulu biar dapat pola nya
+        Arrays.sort(arr);
+
+        //intiate min
+        int MinAwal = 1;
+
+        //loop
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] <= MinAwal) {
+                MinAwal = arr[i] + 1;
+            } else {
+                break;
+            }
+        } System.out.printf("Elemen minus terbesar yang hilang adalah: %d", MinAwal);
+    }
     public static void cariDanTampilkanNamaGanjil() {
 
         System.out.println("Aplikasi Sederhana Mencari Nama yang Ganjil by. AndriFP");
@@ -105,7 +151,7 @@ public class Main {
     }
 
     public static void cutTheBamboo(){
-        System.out.println("How many Bamboo?");
+        System.out.println("How many Bamboo ? - by MasamuneDate99");
         int totBamboo = scan.nextInt();
         int[] bambooLength = new int[totBamboo];
 
